@@ -6,7 +6,7 @@ import {studentRouter} from './routes/studentRouter.js'
 /*Conexão com o mongoDB */
 mongoose
   .connect(
-    "mongodb+srv://CarlosTavares:carlos12321@cluster0.dsmin.mongodb.net/grades?retryWrites=true&w=majority",
+    `mongodb+srv://${process.env.USER}:${process.env.PASSWORD}@cluster0.dsmin.mongodb.net/grades?retryWrites=true&w=majority`,
     {
       useNewUrlParser: true,
       useUnifiedTopology: true,
@@ -23,6 +23,6 @@ const app = express();
 app.use(express.json());
 app.use(studentRouter);
 
-app.listen(3000, () => {
+app.listen(process.env.PORT, () => {
     console.log("API Iniciada");
 })
