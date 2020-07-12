@@ -43,4 +43,13 @@ app.patch("/student/:id", async (req, res) => {
     }
 })
 
+app.put("/student/:id", async (req, res) => {
+    try{
+        const student = await studentModel.findOneAndUpdate({_id: req.params.id}, req.body, {new: true});
+        res.status(200).send(student);
+    }catch(err){
+        res.status(404).send(err.message);
+    }
+})
+
 export {app as studentRouter}
