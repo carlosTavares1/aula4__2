@@ -1,7 +1,9 @@
+/*Imports para uso na aplicação */
 import express from 'express';
 import mongoose from 'mongoose';
 import {studentRouter} from './routes/studentRouter.js'
 
+/*Conexão com o mongoDB */
 mongoose
   .connect(
     "mongodb+srv://CarlosTavares:carlos12321@cluster0.dsmin.mongodb.net/grades?retryWrites=true&w=majority",
